@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "469913584340",
+    "project_id": "school-erp-notofications",
+    "storage_bucket": "school-erp-notofications.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469913584340:android:1b82941993445c654ab141",
+        "android_client_info": {
+          "package_name": "com.gyansootra.pre_school"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl7SzydoqC-AxUzxGfnXoT6GxltEue8UM"
+        },
+        {
+          "current_key": "AIzaSyBHg6yogOVUCKezTj77vfI0ncqfjq6FllQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469913584340:android:36803d13bae243b04ab141",
+        "android_client_info": {
+          "package_name": "com.onbharat.njmschooldl"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl7SzydoqC-AxUzxGfnXoT6GxltEue8UM"
+        },
+        {
+          "current_key": "AIzaSyBHg6yogOVUCKezTj77vfI0ncqfjq6FllQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
