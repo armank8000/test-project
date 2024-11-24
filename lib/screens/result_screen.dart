@@ -1,3 +1,4 @@
+import 'package:erp_student_app/models/functions.dart';
 import 'package:flutter/material.dart';
 
 class ResultScreen extends StatefulWidget {
@@ -8,6 +9,12 @@ class ResultScreen extends StatefulWidget {
 }
 
 class _ResultScreenState extends State<ResultScreen> {
+  var name;
+  var classes;
+  var rollno;
+ 
+  double marksobt = 0;
+
 
   List<Map> marks = [
    {"Exam_type":"Final Exam",
@@ -18,6 +25,32 @@ class _ResultScreenState extends State<ResultScreen> {
     {"drawing":99}]}
   ];
 
+@override
+  void initState() {
+    details();
+    super.initState();
+  }
+
+void details()async{
+  List<Map> subjectMarks = marks[0]['Marks'];
+var rollno1 = await  SecuredStorage(myKey: 'studentRoll').getData();
+var name1 = await SecuredStorage(myKey: 'studentName').getData();
+var classes1  =await SecuredStorage(myKey: 'studentClass').getData();
+setState(() {
+  rollno=rollno1;
+  name=name1;
+  classes=classes1;
+});
+for(var i in subjectMarks){
+  String subjectName = i.keys.first;
+  setState(() {
+    marksobt += i[subjectName];
+  });
+
+}
+
+}
+
 
 
 
@@ -27,12 +60,12 @@ class _ResultScreenState extends State<ResultScreen> {
       appBar: AppBar(
         title: const Text('Result'),
       ),
-      body: Container(padding: EdgeInsets.all(8),child: SingleChildScrollView(
+      body: Container(padding: const EdgeInsets.all(8),child: SingleChildScrollView(
         child: Column(children: [
 
-Text(
+const Text(
 
-                'Techno International School',
+                'Nav jyoti model school',
 
                 style: TextStyle(
 
@@ -42,23 +75,12 @@ Text(
 
                 ),
 
-              ), SizedBox(height: 8),
+              ), const SizedBox(height: 8),
 
-              Text(
 
-                'India',
+              const SizedBox(height: 8),
 
-                style: TextStyle(
-
-                  fontSize: 18,
-
-                ),
-
-              ),
-
-              SizedBox(height: 8),
-
-              Text(
+              const Text(
 
                 '2023-24',
 
@@ -68,31 +90,32 @@ Text(
 
                 ),
 
-              ),SizedBox(height: 16),
+              ),const SizedBox(height: 16),
 
-              _buildRow('Student Name', 'Sanskar Sharma'),
+              _buildRow('Student Name', name.toString()),
 
               _buildRow('Parent Name', 'Khushal Sharma'),
 
               _buildRow('Dob', '24/02/2006'),
 
-              _buildRow('Exam Name', 'Yearly'),
+              _buildRow('Exam Name', marks[0]['Exam_type']),
 
-              _buildRow('Class', '10 th'),
+              _buildRow('Class', classes.toString()),
 
-              _buildRow('Roll No', '61'),
+              _buildRow('Roll No', rollno.toString()),
 
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               _buildTable(),
 
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
-              _buildRow('Grade', 'A (84.5%)'),
+              _buildRow('Grade', marksobt.toString()),
 
-              _buildRow('Attendance', '180'), _buildRow('Remarks', 'Excellent performance!'),
+              _buildRow('Attendance', '180'),
+               _buildRow('Remarks', 'Excellent performance!'),
 
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
 
               
         ],),
@@ -113,7 +136,7 @@ Widget _buildRow(String title, String value) {
 
           title,
 
-          style: TextStyle(
+          style: const TextStyle(
 
             fontSize: 16,
 
@@ -127,7 +150,7 @@ Widget _buildRow(String title, String value) {
 
           value,
 
-          style: TextStyle(
+          style: const TextStyle(
 
             fontSize: 16,
 
@@ -148,18 +171,18 @@ Widget _buildRow(String title, String value) {
 
   // Create a list of TableRow widgets
   List<TableRow> tableRows = [
-    TableRow(
+    const TableRow(
       children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0),
           child: Text('Subject',textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold,)),
         ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0),
           child: Text('Total Marks', textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold)),
         ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0),
           child: Text('Marks Obt.',textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
         ),
         
@@ -172,7 +195,6 @@ Widget _buildRow(String title, String value) {
     String subjectName = subject.keys.first; // Get the subject name
     int marksObtained = subject[subjectName]; // Get the obtained marks
     int totalMarks = 100; // Assuming total marks are 100 for each subject
-
     tableRows.add(
       TableRow(
         children: [

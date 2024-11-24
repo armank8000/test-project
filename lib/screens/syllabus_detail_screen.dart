@@ -24,7 +24,7 @@ class _SyllabusDetailScreenState extends State<SyllabusDetailScreen> {
         title: Text(widget.tittle),
       ),
       body: ListView(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         children: [
           ...widget.data.map((item) {
             return Container(
@@ -38,14 +38,14 @@ class _SyllabusDetailScreenState extends State<SyllabusDetailScreen> {
                           pdf: item['syllabus_file'], color: Colors.black)));
                 },
                 child: ListTile(
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.picture_as_pdf,
-                    color: const Color.fromARGB(255, 138, 14, 5),
+                    color: Color.fromARGB(255, 138, 14, 5),
                     size: 48,
                   ),
                   dense: false,
                   shape: Border.all(
-                      width: 1.5, color: Color.fromARGB(200, 200, 200, 200)),
+                      width: 1.5, color: const Color.fromARGB(200, 200, 200, 200)),
                   contentPadding:
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 24),
                   textColor: Colors.black,
