@@ -1,16 +1,21 @@
-# erp_student_app
+School Application
 
-A new Flutter project.
+Welcome to the School Application! This project is designed to help manage school-related tasks and information efficiently. It provides features for students, teachers, and administrators to enhance the educational experience.
+Table of Contents
 
-## Getting Started
+    Features
+    Technologies Used
+    Usage
 
-This project is a starting point for a Flutter application.
+Features
 
-A few resources to get you started if this is your first Flutter project:
+    User authentication for students,
+    Student enrollment and attendance tracking
+    Assignment and grading system
+    Notifications for upcoming deadlines and events
+    Reports for academic performance
+    User-friendly interface
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Technologies Used
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    Flutter, Dart, firebase.
