@@ -5,7 +5,6 @@ Table of Contents
 
     Features
     Technologies Used
-    Usage
 
 Features
 
